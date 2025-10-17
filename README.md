@@ -26,7 +26,8 @@ npx playwright install
 Para levantar la api:
 ```bash
 npx http-server . -p 8080
-```  
+```
+luego ir a _http://localhost:8080/index.html_
 
 y para ejecutar los archivos de prueba el siguiente comando el la terminal:
 
