@@ -1,16 +1,16 @@
 /*
 ============================================================
-🧪 DOCUMENTACIÓN: Pruebas de gestión de Changesets (API v0.6)
+ DOCUMENTACIÓN: Pruebas de gestión de Changesets (API v0.6)
 ------------------------------------------------------------
-📘 Descripción:
+ Descripción:
 Valida la manipulación de changesets como unidad de trabajo
 para agrupar ediciones dentro del sistema OpenStreetMap.
 
-🎯 Objetivos específicos:
+ Objetivos específicos:
 - Comprobar apertura, edición continua, cierre y descarga sin errores.
 - Confirmar que las discusiones asociadas a cambios están disponibles.
 
-✅ Resultados esperados:
+ Resultados esperados:
 - Funcionamiento fluido, sin pérdida ni corrupción de datos.
 - Sincronización correcta entre interfaces de usuario y API.
 ============================================================
@@ -21,13 +21,13 @@ import { test, expect } from '@playwright/test';
 test.describe('API OSM v0.6 - Pruebas en gestión de changesets', () => {
 
   const baseURL = 'https://api.openstreetmap.org/api/0.6';
-  const token = 'TU_TOKEN_VALIDO_AQUI'; // ⚠️ Sustituir con tu token OAuth2 real
+  const token = 'TU_TOKEN_VALIDO_AQUI'; // Sustituir con tu token OAuth2 real
 
   // Variables para almacenar el ID del changeset abierto
   let changesetId;
 
   // ============================================================
-  // 1️⃣ Apertura de changeset
+  //  Apertura de changeset
   // ------------------------------------------------------------
   // Crea un nuevo changeset con un comentario simple.
   // ============================================================
@@ -53,14 +53,14 @@ test.describe('API OSM v0.6 - Pruebas en gestión de changesets', () => {
 
     if (response.status() === 200) {
       changesetId = await response.text();
-      console.log(`✅ Changeset abierto con ID: ${changesetId}`);
+      console.log(`Changeset abierto con ID: ${changesetId}`);
     } else {
       console.warn('⚠️ No se pudo abrir el changeset (token inválido o expirado)');
     }
   });
 
   // ============================================================
-  // 2️⃣ Simulación de edición continua dentro del changeset
+  // Simulación de edición continua dentro del changeset
   // ------------------------------------------------------------
   // Intenta realizar una edición dentro del changeset abierto.
   // ============================================================
@@ -85,7 +85,7 @@ test.describe('API OSM v0.6 - Pruebas en gestión de changesets', () => {
   });
 
   // ============================================================
-  // 3️⃣ Cierre del changeset
+  //  Cierre del changeset
   // ------------------------------------------------------------
   // Cierra el changeset previamente abierto.
   // ============================================================
@@ -103,7 +103,7 @@ test.describe('API OSM v0.6 - Pruebas en gestión de changesets', () => {
   });
 
   // ============================================================
-  // 4️⃣ Descarga del changeset cerrado
+  // Descarga del changeset cerrado
   // ------------------------------------------------------------
   // Descarga la información del changeset cerrado para verificar
   // que se haya almacenado correctamente.
